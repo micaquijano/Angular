@@ -2,6 +2,7 @@
   "name": "proyecto-de-angular",
   "version": "0.0.0",
   "scripts": {
+    "starto": "ng serve -o",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
