@@ -1,5 +1,5 @@
 <div>
-  <mat-slide-toggle>Slide me!</mat-slide-toggle>
+  <mat-slide-toggle (ngModelChange)="onchance($event)" [(ngModel)]="isDarkThemeActive">Dark mode</mat-slide-toggle>
   <h1>{{ title }}</h1>
   <header-component
     [title]="title"

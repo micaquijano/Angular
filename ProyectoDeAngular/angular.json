@@ -5,7 +5,12 @@
   "projects": {
     "ProyectoDeAngular": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": 
+      {"@schematics/angular:component":{
+        "style": "scss"
+      }
+    },
+      
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -28,7 +33,7 @@
               "src/styles.scss"
             ],
             "scripts": []
-          },
+          }, 
           "configurations": {
             "production": {
               "budgets": [
