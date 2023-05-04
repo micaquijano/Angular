@@ -7,9 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isDarkThemeActive = false;
-  onchance(newValue: boolean): void{
-    console.log(newValue)
-  }
   title = 'ProyectoDeAngular';
   flagDelHijo: boolean = false;
+
+  buttonColor = 'accent';
+  onchance(newValue: boolean): void {
+    //ejecutar cuando una situación ocurre.
+  
+  if(newValue){
+    this.buttonColor ='accent'
+  } else {
+    this.buttonColor = 'primary'
+  }
+  }
 }

@@ -1,5 +1,11 @@
 <div>
-  <mat-slide-toggle (ngModelChange)="onchance($event)" [(ngModel)]="isDarkThemeActive">Dark mode</mat-slide-toggle>
+  <mat-slide-toggle color="primary" (ngModelChange)="onchance($event)" [(ngModel)]="isDarkThemeActive">Dark mode</mat-slide-toggle>
+  <section>
+    <div class="example-button-row">
+      <button mat-raised-button [color]="buttonColor">Primary</button>
+    <button mat-raised-button color="{{buttonColor}}">Accent</button>
+    </div>
+  </section>
   <h1>{{ title }}</h1>
   <header-component
     [title]="title"

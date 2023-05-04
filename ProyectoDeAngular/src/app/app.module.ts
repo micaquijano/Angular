@@ -6,6 +6,8 @@ import { HeaderComponent } from 'src/header/header.component';
 import { HeaderModule } from 'src/header/header.module';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +16,8 @@ import { FormsModule } from '@angular/forms';
   HeaderModule, 
   MatSlideToggleModule,
   FormsModule,
+  MatButtonModule,
+  BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
