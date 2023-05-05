@@ -1,10 +1,9 @@
 {
-  "name": "proyecto-de-angular",
-  "version": "0.0.0",
+  "name": "SharedFund",
+  "version": "0.0.2",
   "scripts": {
-    "starto": "ng serve -o",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

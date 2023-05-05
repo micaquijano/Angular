@@ -1,0 +1,158 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+$primary-dark-palette: (
+    50 : #edfdf1,
+    100 : #d2fbdc,
+    200 : #b4f8c5,
+    300 : #96f5ae,
+    400 : #80f29c,
+    500 : #69f08b,
+    600 : #61ee83,
+    700 : #56ec78,
+    800 : #4ce96e,
+    900 : #3be55b,
+    A100 : #ffffff,
+    A200 : #fdfffe,
+    A400 : #caffd4,
+    A700 : #b1ffbf,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$accent-dark-palette: (
+    50 : #e0fdf8,
+    100 : #b3f9ee,
+    200 : #80f5e3,
+    300 : #4df1d8,
+    400 : #26eecf,
+    500 : #00ebc7,
+    600 : #00e9c1,
+    700 : #00e5ba,
+    800 : #00e2b3,
+    900 : #00dda6,
+    A100 : #ffffff,
+    A200 : #d1fff2,
+    A400 : #9effe4,
+    A700 : #85ffdc,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$themeDarktext: #fffffe;
+$themeDarktextAlternative: #94a1b2;
+$themeDarkdisabled: #D2D2D2;
+$themeDarkdisabledDark: #7d7d7d;
+$themeDarkbackground: #16161a;
+$themeDarkbackgroundAlternative: #242629;
+
+$dark-secondary-text: $themeDarktextAlternative;
+$dark-disabled-text: rgba($themeDarktextAlternative, 0.38);
+$dark-dividers: rgba($themeDarktextAlternative, 0.12);
+$dark-focused: rgba($themeDarktextAlternative, 0.12);
+
+
+// Background palette for dark themes.
+$dark-theme-background-palette: (
+  status-bar: $themeDarkbackground,
+  app-bar:    $themeDarkbackground,
+  background: $themeDarkbackground,
+  hover:      rgba($themeDarkbackgroundAlternative, 0.2), // TODO(kara): check style with Material Design UX
+  card:       $themeDarkbackgroundAlternative,
+  dialog:     $themeDarkbackgroundAlternative,
+  disabled-button: rgba($themeDarkbackgroundAlternative, 0.2),
+  raised-button: $themeDarktextAlternative,
+  focused-button: $themeDarktextAlternative,
+  selected-button: rgba($themeDarkdisabledDark, 0.3),
+  selected-disabled-button: rgba($themeDarkdisabledDark, 0.5),
+  disabled-button-toggle: rgba($themeDarkdisabledDark, 0.2),
+  unselected-chip: rgba($themeDarkdisabledDark, 0.3),
+  disabled-list-option: rgba($themeDarkdisabledDark, 0.2),
+  tooltip: rgba($themeDarkdisabledDark, 0.7),
+);
+
+
+
+
+
+// Foreground palette for dark themes.
+$dark-theme-foreground-palette: (
+  base:              $themeDarktext,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $dark-disabled-text,
+  disabled-button:   rgba($themeDarktext, 0.26),
+  disabled-text:     $dark-disabled-text,
+  elevation:         $themeDarktext,
+  hint-text:         $dark-disabled-text,
+  secondary-text:    $dark-secondary-text,
+  icon:              rgba($themeDarktext, 0.54),
+  icons:             rgba($themeDarktext, 0.54),
+  text:              rgba($themeDarktext, 0.87),
+  slider-min:        rgba($themeDarktext, 0.87),
+  slider-off:        rgba($themeDarktext, 0.26),
+  slider-off-active: rgba($themeDarktext, 0.38),
+);
+
+
+
+
+$mat-dark-primary: mat.define-palette($primary-dark-palette);
+$mat-dark-accent: mat.define-palette($accent-dark-palette);
+$mat-dark-warn: mat.define-palette(mat.$red-palette);
+
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$theme-dark: mat.define-dark-theme((
+  color: (
+    primary: $mat-dark-primary,
+    accent:$mat-dark-accent,
+    warn: mat.define-palette(mat.$red-palette),
+  )
+));
+
+
+
+$extended-theme-dark: map-get($theme-dark, background);
+$extended-theme-dark: map_merge($extended-theme-dark, $dark-theme-foreground-palette);
+$extended-theme-dark-foreground: map-get($theme-dark, foreground);
+$extended-theme-dark-foreground: map_merge($extended-theme-dark-foreground, $dark-theme-foreground-palette);
+$theme-dark: map_merge(
+  $theme-dark,
+  (
+    foreground: $extended-theme-dark-foreground,
+    background: $extended-theme-dark,
+  )
+);
+
+
+

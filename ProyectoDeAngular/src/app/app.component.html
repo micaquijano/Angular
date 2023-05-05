@@ -1,9 +1,43 @@
+
 <div>
-  <mat-slide-toggle color="primary" (ngModelChange)="onchance($event)" [(ngModel)]="isDarkThemeActive">Dark mode</mat-slide-toggle>
+  <p>
+    <mat-toolbar>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon color="primary">menu</mat-icon>
+      </button>
+      <img src="../assets/logo_dark.png" title="SharedFund" width="128px" />
+      <span class="example-spacer"></span>
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+      >
+        <mat-icon color="accent">favorite</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+      >
+        <mat-icon color="primary">share</mat-icon>
+      </button>
+      <mat-slide-toggle
+        color="primary"
+        (ngModelChange)="onchance($event)"
+        [(ngModel)]="isDarkThemeActive"
+        >Dark mode</mat-slide-toggle
+      >
+    </mat-toolbar>
+  </p>
+
   <section>
     <div class="example-button-row">
       <button mat-raised-button [color]="buttonColor">Primary</button>
-    <button mat-raised-button color="{{buttonColor}}">Accent</button>
+      <button mat-raised-button color="{{ buttonColor }}">Accent</button>
     </div>
   </section>
   <h1>{{ title }}</h1>
@@ -12,6 +46,9 @@
     (onClickEvent)="flagDelHijo = $event"
   ></header-component>
   <h1>{{ flagDelHijo }}</h1>
+ 
+ 
+ 
   <mat-card>
     <mat-card-header>
       <mat-card-title>Actions Buttons</mat-card-title>
@@ -22,7 +59,7 @@
       <button mat-button>SHARE</button>
     </mat-card-actions>
   </mat-card>
-  <br>
+  <br />
   <mat-card>
     <mat-card-header>
       <mat-card-title>Actions Buttons</mat-card-title>

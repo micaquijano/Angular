@@ -1,349 +1,137 @@
- 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
+// Plus imports for other components in your app.
 @use '@angular/material' as mat;
 @use 'sass:map';
-// Plus imports for other components in your app.
+@import './assets/dark_theme.scss';
+@import './assets/light_theme.scss';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
-
-/* // Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$ProyectoDeAngular-primary: mat.define-palette(mat.$indigo-palette);
-$ProyectoDeAngular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$ProyectoDeAngular-warn: mat.define-palette(mat.$red-palette);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$ProyectoDeAngular-theme: mat.define-light-theme((
-  color: (
-    primary: $ProyectoDeAngular-primary,
-    accent: $ProyectoDeAngular-accent,
-    warn: $ProyectoDeAngular-warn,
-  )
-));
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($ProyectoDeAngular-theme);
-
-
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat.core();
- */
-$primary-dark-palette: (
-    50 : #edfdf1,
-    100 : #d2fbdc,
-    200 : #b4f8c5,
-    300 : #96f5ae,
-    400 : #80f29c,
-    500 : #69f08b,
-    600 : #61ee83,
-    700 : #56ec78,
-    800 : #4ce96e,
-    900 : #3be55b,
-    A100 : #ffffff,
-    A200 : #fdfffe,
-    A400 : #caffd4,
-    A700 : #b1ffbf,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #000000,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
-
-$accent-dark-palette: (
-    50 : #e0fdf8,
-    100 : #b3f9ee,
-    200 : #80f5e3,
-    300 : #4df1d8,
-    400 : #26eecf,
-    500 : #00ebc7,
-    600 : #00e9c1,
-    700 : #00e5ba,
-    800 : #00e2b3,
-    900 : #00dda6,
-    A100 : #ffffff,
-    A200 : #d1fff2,
-    A400 : #9effe4,
-    A700 : #85ffdc,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #000000,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
-
-$primary-light-palette: (
-  50 : #fdedf9,
-  100 : #fbd2f0,
-  200 : #f8b4e7,
-  300 : #f596dd,
-  400 : #f280d5,
-  500 : #f069ce,
-  600 : #ee61c9,
-  700 : #ec56c2,
-  800 : #e94cbc,
-  900 : #e53bb0,
-  A100 : #ffffff,
-  A200 : #fffdfe,
-  A400 : #ffcaee,
-  A700 : #ffb1e6,
-  contrast: (
-      50 : #000000,
-      100 : #000000,
-      200 : #000000,
-      300 : #000000,
-      400 : #000000,
-      500 : #000000,
-      600 : #000000,
-      700 : #000000,
-      800 : #000000,
-      900 : #ffffff,
-      A100 : #000000,
-      A200 : #000000,
-      A400 : #000000,
-      A700 : #000000,
-  )
-);
-
-$accent-light-palette:(
-  50 : #fffcea,
-  100 : #fef6ca,
-  200 : #fef1a7,
-  300 : #feeb84,
-  400 : #fde669,
-  500 : #fde24f,
-  600 : #fddf48,
-  700 : #fcda3f,
-  800 : #fcd636,
-  900 : #fccf26,
-  A100 : #ffffff,
-  A200 : #ffffff,
-  A400 : #fff4d0,
-  A700 : #ffefb7,
-  contrast: (
-      50 : #000000,
-      100 : #000000,
-      200 : #000000,
-      300 : #000000,
-      400 : #000000,
-      500 : #000000,
-      600 : #000000,
-      700 : #000000,
-      800 : #000000,
-      900 : #000000,
-      A100 : #000000,
-      A200 : #000000,
-      A400 : #000000,
-      A700 : #000000,
-  )
-);
-
-$themeLighttext: #00214d;
-$themeLighttextAlternative: #1b2d45;
-$themeLightdisabled: #D2D2D2;
-$themeLightdisabledDark: #7d7d7d;
-$themeLightbackground: #fffffe;
-$themeLightbackgroundAlternative: #f2f4f6;
-
-$themeDarktext: #fffffe;
-$themeDarktextAlternative: #94a1b2;
-$themeDarkdisabled: #D2D2D2;
-$themeDarkdisabledDark: #7d7d7d;
-$themeDarkbackground: #16161a;
-$themeDarkbackgroundAlternative: #242629;
-
-
-// Background palette for light themes.
-$light-theme-background-palette: (
-  status-bar: $themeLightbackground,
-  app-bar:    $themeLightbackgroundAlternative,
-  background: $themeLightbackground,
-  hover:      rgba($themeLightdisabledDark, 0.04), // TODO(kara): check style with Material Design UX
-  card:       $themeLightbackgroundAlternative,
-  dialog:     $themeLightbackgroundAlternative,
-  disabled-button: rgba($themeLightdisabledDark, 0.12),
-  raised-button: $themeLightbackgroundAlternative,
-  focused-button: rgba($themeLightdisabledDark, 0.12),
-  selected-button: $themeLightbackgroundAlternative,
-  selected-disabled-button: $themeLightbackgroundAlternative,
-  disabled-button-toggle: $themeLightbackground,
-  unselected-chip: $themeLightbackgroundAlternative,
-  disabled-list-option: rgba($themeLightdisabledDark, 0.12),
-  tooltip: $themeLightbackgroundAlternative,
-);
-
-// Background palette for dark themes.
-$dark-theme-background-palette: (
-  status-bar: $themeDarkbackground,
-  app-bar:    $themeDarkbackgroundAlternative,
-  background: $themeDarkbackground,
-  hover:      rgba($themeDarkdisabledDark, 0.04), // TODO(kara): check style with Material Design UX
-  card:       $themeDarkbackgroundAlternative,
-  dialog:     $themeDarkbackgroundAlternative,
-  disabled-button: rgba($themeDarkdisabledDark, 0.12),
-  raised-button: $themeDarkbackgroundAlternative,
-  focused-button: rgba($themeDarkdisabledDark, 0.12),
-  selected-button: $themeDarkbackgroundAlternative,
-  selected-disabled-button: $themeDarkbackgroundAlternative,
-  disabled-button-toggle: $themeDarkbackground,
-  unselected-chip: $themeDarkbackgroundAlternative,
-  disabled-list-option: rgba($themeDarkdisabledDark, 0.12),
-  tooltip: $themeDarkbackgroundAlternative,
-);
-
-
-
-
-// Foreground palette for light themes.
-$light-theme-foreground-palette: (
-  base:              $themeLighttext,
-  divider:           $themeLighttextAlternative,
-  dividers:          $themeLighttextAlternative,
-  disabled:          $themeLightdisabled,
-  disabled-button:   $themeLightdisabledDark,
-  disabled-text:     $themeLightdisabled,
-  elevation:         $themeLighttext,
-  hint-text:         $themeLighttextAlternative,
-  secondary-text:    $themeLighttextAlternative,
-  icon:              $themeLighttext,
-  icons:             $themeLighttext,
-  text:              $themeLighttext,
-  slider-min:        $themeLighttext,
-  slider-off:        $themeLighttext,
-  slider-off-active: $themeLighttext,
-);
-
-// Foreground palette for dark themes.
-$dark-theme-foreground-palette: (
-  base:              $themeDarktext,
-  divider:           $themeDarktextAlternative,
-  dividers:          $themeDarktextAlternative,
-  disabled:          $themeDarkdisabled,
-  disabled-button:   $themeDarkdisabledDark,
-  disabled-text:     $themeDarkdisabled,
-  elevation:         $themeDarktext,
-  hint-text:         $themeDarktextAlternative,
-  secondary-text:    $themeDarktextAlternative,
-  icon:              $themeDarktext,
-  icons:             $themeDarktext,
-  text:              $themeDarktext,
-  slider-min:        $themeDarktext,
-  slider-off:        $themeDarktext,
-  slider-off-active: $themeDarktext,
-);
-
-
-
-
-$mat-dark-primary: mat.define-palette($primary-dark-palette);
-$mat-dark-accent: mat.define-palette($accent-dark-palette);
-$mat-light-primary: mat.define-palette($primary-light-palette);
-$mat-light-accent:mat.define-palette($accent-light-palette);
-
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$theme-dark: mat.define-dark-theme((
-  color: (
-    primary: $mat-dark-primary,
-    accent:$mat-dark-accent,
-    warn: mat.define-palette(mat.$red-palette),
-  )
-));
-
-
-$theme-light: mat.define-light-theme((
-  color: (
-    primary: $mat-light-primary,
-    accent:$mat-light-accent,
-    warn: mat.define-palette(mat.$red-palette),
-  )
-));
-
-
-$extended-theme-dark: map-get($theme-dark, background);
-$extended-theme-dark: map_merge($extended-theme-dark, $dark-theme-foreground-palette);
-$extended-theme-dark-foreground: map-get($theme-dark, foreground);
-$extended-theme-dark-foreground: map_merge($extended-theme-dark-foreground, $dark-theme-foreground-palette);
-$theme-dark: map_merge(
-  $theme-dark,
-  (
-    foreground: $extended-theme-dark-foreground,
-    background: $extended-theme-dark,
-  )
-);
-
-$extended-theme-light: map-get($theme-light, background);
-$extended-theme-light: map_merge($extended-theme-light, $light-theme-foreground-palette);
-$extended-theme-light-foreground: map-get($theme-light, foreground);
-$extended-theme-light-foreground: map_merge($extended-theme-light-foreground, $light-theme-foreground-palette);
-$theme-light: map_merge(
-  $theme-light,
-  (
-    foreground: $extended-theme-light-foreground,
-    background: $extended-theme-light,
-  )
-);
-
-@debug $theme-light;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.theme-dark{
+body.theme-dark{
   // Apply the dark theme by default
   @include mat.core-theme($theme-dark);
   @include mat.button-theme($theme-dark);
+  @include mat.card-theme($theme-dark);
   @include mat.all-component-themes($theme-dark);
-  background: map.get($dark-theme-background-palette, "background");
-  color:map.get($dark-theme-foreground-palette, "text");
+  @include mat.all-component-colors($theme-dark);
+
+  $dark-background: map.get($dark-theme-background-palette, "background");
+  $dark-background-light: map.get($dark-theme-background-palette, "focused-button");
+  $card-background: map.get($dark-theme-background-palette, "card");
+  $dark-title: map.get($dark-theme-foreground-palette, "base");
+  $dark-subtitle: map.get($dark-theme-foreground-palette, "secondary-text");
+
+  background: $dark-background;
+  color: $dark-title;
+
+  .mat-toolbar{
+    background: $dark-background;
+  }
+  h1,h2,h3,h4,h5,h6{
+    color: $dark-title;
+  }
+  .bg{
+    background-color: $dark-background;
+  }
+  .bglight{
+    background-color: $dark-background-light;
+  }
+  .title{
+    color: $dark-title;
+  }
+  .subtitle{
+    color: $dark-subtitle;
+  }
+/*   .primaryColor{
+    color: $mat-dark-primary;
+  }
+  .primaryBg{
+    background-color: $mat-dark-primary;
+  }
+  .accentColor{
+    color: $mat-dark-accent;
+  }
+  .accentBg{
+    background-color: $mat-dark-accent;
+  }
+  .warnColor{
+    color: $mat-dark-warn;
+  }
+  .warnBg{
+    background-color: $mat-dark-warn;
+  } */
+  .mat-mdc-card{
+    background: $card-background;
+  }
+  .mat-mdc-card-subtitle{
+    color: map.get($dark-theme-foreground-palette, "secondary-text");
+  }
 }
-.theme-light{
+body.theme-light{
 // Apply the dark theme by default
 @include mat.core-theme($theme-light);
 @include mat.button-theme($theme-light);
 @include mat.all-component-themes($theme-light);
-background: map.get($light-theme-background-palette, "background");
-color:map.get($light-theme-foreground-palette, "text");
+@include mat.all-component-colors($theme-light);
+
+
+$light-background: map.get($light-theme-background-palette, "background");
+$light-background-light: map.get($light-theme-background-palette, "focused-button");
+$card-background: map.get($light-theme-background-palette, "card");
+$light-title: map.get($light-theme-foreground-palette, "base");
+$light-subtitle: map.get($light-theme-foreground-palette, "secondary-text");
+
+background: $light-background;
+color: $light-title;
+
+.mat-toolbar{
+  background: $light-background;
+}
+h1,h2,h3,h4,h5,h6{
+  color: $light-title;
+}
+.bg{
+  background-color: $light-background;
+}
+.bglight{
+  background-color: $light-background-light;
+}
+.title{
+  color: $light-title;
+}
+.subtitle{
+  color: $light-subtitle;
+}
+/*   .primaryColor{
+  color: $mat-light-primary;
+}
+.primaryBg{
+  background-color: $mat-light-primary;
+}
+.accentColor{
+  color: $mat-light-accent;
+}
+.accentBg{
+  background-color: $mat-light-accent;
+}
+.warnColor{
+  color: $mat-light-warn;
+}
+.warnBg{
+  background-color: $mat-light-warn;
+} */
+.mat-mdc-card{
+  background: $card-background;
+}
+.mat-mdc-card-subtitle{
+  color: map.get($light-theme-foreground-palette, "secondary-text");
+}
 }
 
 
