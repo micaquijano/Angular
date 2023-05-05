@@ -1,4 +1,4 @@
-
+ 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
@@ -9,7 +9,7 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
+/* // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $ProyectoDeAngular-primary: mat.define-palette(mat.$indigo-palette);
@@ -33,7 +33,202 @@ $ProyectoDeAngular-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($ProyectoDeAngular-theme);
 
-/* You can add global styles to this file, and also import other style files */
+
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+ */
+$primary-dark-palette: (
+    50 : #edfdf1,
+    100 : #d2fbdc,
+    200 : #b4f8c5,
+    300 : #96f5ae,
+    400 : #80f29c,
+    500 : #69f08b,
+    600 : #61ee83,
+    700 : #56ec78,
+    800 : #4ce96e,
+    900 : #3be55b,
+    A100 : #ffffff,
+    A200 : #fdfffe,
+    A400 : #caffd4,
+    A700 : #b1ffbf,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$accent-dark-palette: (
+    50 : #e0fdf8,
+    100 : #b3f9ee,
+    200 : #80f5e3,
+    300 : #4df1d8,
+    400 : #26eecf,
+    500 : #00ebc7,
+    600 : #00e9c1,
+    700 : #00e5ba,
+    800 : #00e2b3,
+    900 : #00dda6,
+    A100 : #ffffff,
+    A200 : #d1fff2,
+    A400 : #9effe4,
+    A700 : #85ffdc,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$primary-light-palette: (
+  50 : #fdedf9,
+  100 : #fbd2f0,
+  200 : #f8b4e7,
+  300 : #f596dd,
+  400 : #f280d5,
+  500 : #f069ce,
+  600 : #ee61c9,
+  700 : #ec56c2,
+  800 : #e94cbc,
+  900 : #e53bb0,
+  A100 : #ffffff,
+  A200 : #fffdfe,
+  A400 : #ffcaee,
+  A700 : #ffb1e6,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #000000,
+      400 : #000000,
+      500 : #000000,
+      600 : #000000,
+      700 : #000000,
+      800 : #000000,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #000000,
+      A700 : #000000,
+  )
+);
+
+$accent-light-palette:(
+  50 : #fffcea,
+  100 : #fef6ca,
+  200 : #fef1a7,
+  300 : #feeb84,
+  400 : #fde669,
+  500 : #fde24f,
+  600 : #fddf48,
+  700 : #fcda3f,
+  800 : #fcd636,
+  900 : #fccf26,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #fff4d0,
+  A700 : #ffefb7,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #000000,
+      400 : #000000,
+      500 : #000000,
+      600 : #000000,
+      700 : #000000,
+      800 : #000000,
+      900 : #000000,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #000000,
+      A700 : #000000,
+  )
+);
+
+
+$mat-dark-primary: mat.define-palette($primary-dark-palette);
+$mat-dark-accent: mat.define-palette($accent-dark-palette);
+$mat-light-primary: mat.define-palette($primary-light-palette);
+$mat-light-accent:mat.define-palette($accent-light-palette);
+
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$theme-dark: mat.define-dark-theme((
+  color: (
+    primary: $mat-dark-primary,
+    accent:$mat-dark-accent,
+    warn: mat.define-palette(mat.$red-palette)
+  )
+));
+//$theme-dark: mat-dark-theme($mat-dark-primary, $mat-dark-accent, $mat-error);
+
+
+$theme-light: mat.define-light-theme((
+  color: (
+    primary: $mat-light-primary,
+    accent:$mat-light-accent,
+    warn: mat.define-palette(mat.$red-palette)
+  )
+));
+//$theme-light: mat-dark-theme($mat-light-primary, $mat-light-accent, $mat-error);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* .theme-dark{
+  //@include angular-material-theme($theme-dark);
+  @include mat.all-component-themes($theme-dark);
+}
+.theme-light{
+  //@include angular-material-theme($theme-light);
+  @include mat.all-component-themes($theme-light);
+}
+ */
+
+// Apply the dark theme by default
+@include mat.core-theme($theme-dark);
+@include mat.button-theme($theme-dark);
+
+// Apply the light theme only when the user prefers light themes.
+@media (prefers-color-scheme: light) {
+ // Use the `-color` mixins to only apply color styles without reapplying the same
+ // typography and density styles.
+ @include mat.core-color($theme-light);
+ @include mat.button-color($theme-light);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
