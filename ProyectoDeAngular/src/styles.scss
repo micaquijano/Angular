@@ -2,6 +2,7 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
+@use 'sass:map';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -177,6 +178,102 @@ $accent-light-palette:(
   )
 );
 
+$themeLighttext: #00214d;
+$themeLighttextAlternative: #1b2d45;
+$themeLightdisabled: #D2D2D2;
+$themeLightdisabledDark: #7d7d7d;
+$themeLightbackground: #fffffe;
+$themeLightbackgroundAlternative: #f2f4f6;
+
+$themeDarktext: #fffffe;
+$themeDarktextAlternative: #94a1b2;
+$themeDarkdisabled: #D2D2D2;
+$themeDarkdisabledDark: #7d7d7d;
+$themeDarkbackground: #16161a;
+$themeDarkbackgroundAlternative: #242629;
+
+
+// Background palette for light themes.
+$light-theme-background-palette: (
+  status-bar: $themeLightbackground,
+  app-bar:    $themeLightbackgroundAlternative,
+  background: $themeLightbackground,
+  hover:      rgba($themeLightdisabledDark, 0.04), // TODO(kara): check style with Material Design UX
+  card:       $themeLightbackgroundAlternative,
+  dialog:     $themeLightbackgroundAlternative,
+  disabled-button: rgba($themeLightdisabledDark, 0.12),
+  raised-button: $themeLightbackgroundAlternative,
+  focused-button: rgba($themeLightdisabledDark, 0.12),
+  selected-button: $themeLightbackgroundAlternative,
+  selected-disabled-button: $themeLightbackgroundAlternative,
+  disabled-button-toggle: $themeLightbackground,
+  unselected-chip: $themeLightbackgroundAlternative,
+  disabled-list-option: rgba($themeLightdisabledDark, 0.12),
+  tooltip: $themeLightbackgroundAlternative,
+);
+
+// Background palette for dark themes.
+$dark-theme-background-palette: (
+  status-bar: $themeDarkbackground,
+  app-bar:    $themeDarkbackgroundAlternative,
+  background: $themeDarkbackground,
+  hover:      rgba($themeDarkdisabledDark, 0.04), // TODO(kara): check style with Material Design UX
+  card:       $themeDarkbackgroundAlternative,
+  dialog:     $themeDarkbackgroundAlternative,
+  disabled-button: rgba($themeDarkdisabledDark, 0.12),
+  raised-button: $themeDarkbackgroundAlternative,
+  focused-button: rgba($themeDarkdisabledDark, 0.12),
+  selected-button: $themeDarkbackgroundAlternative,
+  selected-disabled-button: $themeDarkbackgroundAlternative,
+  disabled-button-toggle: $themeDarkbackground,
+  unselected-chip: $themeDarkbackgroundAlternative,
+  disabled-list-option: rgba($themeDarkdisabledDark, 0.12),
+  tooltip: $themeDarkbackgroundAlternative,
+);
+
+
+
+
+// Foreground palette for light themes.
+$light-theme-foreground-palette: (
+  base:              $themeLighttext,
+  divider:           $themeLighttextAlternative,
+  dividers:          $themeLighttextAlternative,
+  disabled:          $themeLightdisabled,
+  disabled-button:   $themeLightdisabledDark,
+  disabled-text:     $themeLightdisabled,
+  elevation:         $themeLighttext,
+  hint-text:         $themeLighttextAlternative,
+  secondary-text:    $themeLighttextAlternative,
+  icon:              $themeLighttext,
+  icons:             $themeLighttext,
+  text:              $themeLighttext,
+  slider-min:        $themeLighttext,
+  slider-off:        $themeLighttext,
+  slider-off-active: $themeLighttext,
+);
+
+// Foreground palette for dark themes.
+$dark-theme-foreground-palette: (
+  base:              $themeDarktext,
+  divider:           $themeDarktextAlternative,
+  dividers:          $themeDarktextAlternative,
+  disabled:          $themeDarkdisabled,
+  disabled-button:   $themeDarkdisabledDark,
+  disabled-text:     $themeDarkdisabled,
+  elevation:         $themeDarktext,
+  hint-text:         $themeDarktextAlternative,
+  secondary-text:    $themeDarktextAlternative,
+  icon:              $themeDarktext,
+  icons:             $themeDarktext,
+  text:              $themeDarktext,
+  slider-min:        $themeDarktext,
+  slider-off:        $themeDarktext,
+  slider-off-active: $themeDarktext,
+);
+
+
+
 
 $mat-dark-primary: mat.define-palette($primary-dark-palette);
 $mat-dark-accent: mat.define-palette($accent-dark-palette);
@@ -190,45 +287,65 @@ $theme-dark: mat.define-dark-theme((
   color: (
     primary: $mat-dark-primary,
     accent:$mat-dark-accent,
-    warn: mat.define-palette(mat.$red-palette)
+    warn: mat.define-palette(mat.$red-palette),
   )
 ));
-//$theme-dark: mat-dark-theme($mat-dark-primary, $mat-dark-accent, $mat-error);
 
 
 $theme-light: mat.define-light-theme((
   color: (
     primary: $mat-light-primary,
     accent:$mat-light-accent,
-    warn: mat.define-palette(mat.$red-palette)
+    warn: mat.define-palette(mat.$red-palette),
   )
 ));
-//$theme-light: mat-dark-theme($mat-light-primary, $mat-light-accent, $mat-error);
+
+
+$extended-theme-dark: map-get($theme-dark, background);
+$extended-theme-dark: map_merge($extended-theme-dark, $dark-theme-foreground-palette);
+$extended-theme-dark-foreground: map-get($theme-dark, foreground);
+$extended-theme-dark-foreground: map_merge($extended-theme-dark-foreground, $dark-theme-foreground-palette);
+$theme-dark: map_merge(
+  $theme-dark,
+  (
+    foreground: $extended-theme-dark-foreground,
+    background: $extended-theme-dark,
+  )
+);
+
+$extended-theme-light: map-get($theme-light, background);
+$extended-theme-light: map_merge($extended-theme-light, $light-theme-foreground-palette);
+$extended-theme-light-foreground: map-get($theme-light, foreground);
+$extended-theme-light-foreground: map_merge($extended-theme-light-foreground, $light-theme-foreground-palette);
+$theme-light: map_merge(
+  $theme-light,
+  (
+    foreground: $extended-theme-light-foreground,
+    background: $extended-theme-light,
+  )
+);
+
+@debug $theme-light;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-/* .theme-dark{
-  //@include angular-material-theme($theme-dark);
+.theme-dark{
+  // Apply the dark theme by default
+  @include mat.core-theme($theme-dark);
+  @include mat.button-theme($theme-dark);
   @include mat.all-component-themes($theme-dark);
+  background: map.get($dark-theme-background-palette, "background");
+  color:map.get($dark-theme-foreground-palette, "text");
 }
 .theme-light{
-  //@include angular-material-theme($theme-light);
-  @include mat.all-component-themes($theme-light);
-}
- */
-
 // Apply the dark theme by default
-@include mat.core-theme($theme-dark);
-@include mat.button-theme($theme-dark);
-
-// Apply the light theme only when the user prefers light themes.
-@media (prefers-color-scheme: light) {
- // Use the `-color` mixins to only apply color styles without reapplying the same
- // typography and density styles.
- @include mat.core-color($theme-light);
- @include mat.button-color($theme-light);
+@include mat.core-theme($theme-light);
+@include mat.button-theme($theme-light);
+@include mat.all-component-themes($theme-light);
+background: map.get($light-theme-background-palette, "background");
+color:map.get($light-theme-foreground-palette, "text");
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
 

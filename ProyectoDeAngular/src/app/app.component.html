@@ -1,4 +1,4 @@
-<div class="theme-dark">
+<div>
   <mat-slide-toggle color="primary" (ngModelChange)="onchance($event)" [(ngModel)]="isDarkThemeActive">Dark mode</mat-slide-toggle>
   <section>
     <div class="example-button-row">
@@ -12,4 +12,25 @@
     (onClickEvent)="flagDelHijo = $event"
   ></header-component>
   <h1>{{ flagDelHijo }}</h1>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Actions Buttons</mat-card-title>
+      <mat-card-subtitle>Start</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+  <br>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Actions Buttons</mat-card-title>
+      <mat-card-subtitle>End</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions align="end">
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
