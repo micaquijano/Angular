@@ -11,9 +11,7 @@ export class AppComponent {
   flagDelHijo: boolean = false;
 
   buttonColor = 'accent';
-  onchance(newValue: boolean): void {
-    //ejecutar cuando una situación ocurre.
-  
+  onchance(newValue: boolean): void { //onchance: ejecutar cuando una situación ocurre.
   if(newValue){
     this.buttonColor ='accent'
   } else {
