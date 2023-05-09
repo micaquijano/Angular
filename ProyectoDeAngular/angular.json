@@ -26,11 +26,14 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/assets/favicon.ico",
+              "src/assets",
+              "src/assets/dark_theme.scss",
+              "src/assets/light_theme.scss",
+              "src/assets/logo_dark.png",
+              "src/assets/light.png"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []

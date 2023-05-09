@@ -1,39 +1,139 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
 // Plus imports for other components in your app.
+@use '@angular/material' as mat;
+@use 'sass:map';
+@import './assets/dark_theme.scss';
+@import './assets/light_theme.scss';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$ProyectoDeAngular-primary: mat.define-palette(mat.$indigo-palette);
-$ProyectoDeAngular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$ProyectoDeAngular-warn: mat.define-palette(mat.$red-palette);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$ProyectoDeAngular-theme: mat.define-light-theme((
-  color: (
-    primary: $ProyectoDeAngular-primary,
-    accent: $ProyectoDeAngular-accent,
-    warn: $ProyectoDeAngular-warn,
-  )
-));
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($ProyectoDeAngular-theme);
-
-/* You can add global styles to this file, and also import other style files */
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body.theme-dark{
+  // Apply the dark theme by default
+  @include mat.core-theme($theme-dark);
+  @include mat.button-theme($theme-dark);
+  @include mat.card-theme($theme-dark);
+  @include mat.all-component-themes($theme-dark);
+  @include mat.all-component-colors($theme-dark);
+
+  $dark-background: map.get($dark-theme-background-palette, "background");
+  $dark-background-light: map.get($dark-theme-background-palette, "focused-button");
+  $card-background: map.get($dark-theme-background-palette, "card");
+  $dark-title: map.get($dark-theme-foreground-palette, "base");
+  $dark-subtitle: map.get($dark-theme-foreground-palette, "secondary-text");
+
+  background: $dark-background;
+  color: $dark-title;
+
+  .mat-toolbar{
+    background: $dark-background;
+  }
+  h1,h2,h3,h4,h5,h6{
+    color: $dark-title;
+  }
+  .bg{
+    background-color: $dark-background;
+  }
+  .bglight{
+    background-color: $dark-background-light;
+  }
+  .title{
+    color: $dark-title;
+  }
+  .subtitle{
+    color: $dark-subtitle;
+  }
+/*   .primaryColor{
+    color: $mat-dark-primary;
+  }
+  .primaryBg{
+    background-color: $mat-dark-primary;
+  }
+  .accentColor{
+    color: $mat-dark-accent;
+  }
+  .accentBg{
+    background-color: $mat-dark-accent;
+  }
+  .warnColor{
+    color: $mat-dark-warn;
+  }
+  .warnBg{
+    background-color: $mat-dark-warn;
+  } */
+  .mat-mdc-card{
+    background: $card-background;
+  }
+  .mat-mdc-card-subtitle{
+    color: map.get($dark-theme-foreground-palette, "secondary-text");
+  }
+}
+body.theme-light{
+// Apply the dark theme by default
+@include mat.core-theme($theme-light);
+@include mat.button-theme($theme-light);
+@include mat.all-component-themes($theme-light);
+@include mat.all-component-colors($theme-light);
+
+
+$light-background: map.get($light-theme-background-palette, "background");
+$light-background-light: map.get($light-theme-background-palette, "focused-button");
+$card-background: map.get($light-theme-background-palette, "card");
+$light-title: map.get($light-theme-foreground-palette, "base");
+$light-subtitle: map.get($light-theme-foreground-palette, "secondary-text");
+
+background: $light-background;
+color: $light-title;
+
+.mat-toolbar{
+  background: $light-background;
+}
+h1,h2,h3,h4,h5,h6{
+  color: $light-title;
+}
+.bg{
+  background-color: $light-background;
+}
+.bglight{
+  background-color: $light-background-light;
+}
+.title{
+  color: $light-title;
+}
+.subtitle{
+  color: $light-subtitle;
+}
+/*   .primaryColor{
+  color: $mat-light-primary;
+}
+.primaryBg{
+  background-color: $mat-light-primary;
+}
+.accentColor{
+  color: $mat-light-accent;
+}
+.accentBg{
+  background-color: $mat-light-accent;
+}
+.warnColor{
+  color: $mat-light-warn;
+}
+.warnBg{
+  background-color: $mat-light-warn;
+} */
+.mat-mdc-card{
+  background: $card-background;
+}
+.mat-mdc-card-subtitle{
+  color: map.get($light-theme-foreground-palette, "secondary-text");
+}
+}
+
+
+
+
