@@ -23,6 +23,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     `,
   ],
 })
+
 export class HeaderComponent {
   @Input() title: string = 'header component';
   @Output() onClickEvent = new EventEmitter<boolean>();
@@ -41,3 +42,4 @@ export class HeaderComponent {
     this.onClickEvent.emit(this.flag);
   }
 }
+
