@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 //material
-import { MaterialModule } from './material'
+import { MaterialModule } from './material.module'
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
