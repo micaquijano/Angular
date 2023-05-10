@@ -10,8 +10,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports:[
   BrowserModule, 
   MatSlideToggleModule,
