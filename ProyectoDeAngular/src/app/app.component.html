@@ -2,13 +2,26 @@
 <div>
   <p>
     <mat-toolbar>
-      <button
+      <mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+          <ul><li><button mat-button >Home</button></li> 
+          <button mat-button>Investment</button></ul>
+          <button (click)="showFiller = !showFiller">
+          </button>
+        </mat-drawer>
+        <div class="example-sidenav-content">
+          <button type="button" mat-button (click)="drawer.toggle()">
+            <mat-icon color="primary">menu</mat-icon>
+          </button>
+        </div>
+      </mat-drawer-container>
+      <!-- <button
         mat-icon-button
         class="example-icon"
         aria-label="Example icon-button with menu icon"
       >
       <mat-icon color="primary">menu</mat-icon>
-      </button>
+      </button> -->
       <img src="../assets/logo_dark.png" title="SharedFund" width="128px" />
       <span class="example-spacer"></span>
       <button
