@@ -7,7 +7,7 @@
         class="example-icon"
         aria-label="Example icon-button with menu icon"
       >
-        <mat-icon color="primary">menu</mat-icon>
+      <mat-icon color="primary">menu</mat-icon>
       </button>
       <img src="../assets/logo_dark.png" title="SharedFund" width="128px" />
       <span class="example-spacer"></span>
@@ -32,8 +32,15 @@
         >Dark mode</mat-slide-toggle
       >
     </mat-toolbar>
+    <button mat-raised-button
+        matTooltip="modo oscuro"
+        matTooltipClass="example-tooltip-uppercase"
+        aria-label="Button that shows a red tooltip"
+        class="example-button">
+      Dark mode
+</button>
   </p>
-
+  
   <section>
     <div class="example-button-row">
       <button mat-raised-button [color]="buttonColor">Primary</button>

@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./themeButton.component.scss']
 })
 export class ThemeButtonComponent {
+  
 }

@@ -8,14 +8,17 @@ import { FooterComponent } from './footer/footer.component';
 
 //material
 import { MaterialModule } from './material.module'
+//themeButton
+import { ThemeButtonComponent } from './themeButton/themeButton.component'
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, ThemeButtonComponent],
   imports:[
   BrowserModule, 
   FormsModule,
   BrowserAnimationsModule,
   MaterialModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent],
