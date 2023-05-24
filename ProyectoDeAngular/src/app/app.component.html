@@ -4,10 +4,10 @@
     <mat-toolbar>
       <mat-drawer-container class="example-container" autosize>
         <mat-drawer #drawer class="example-sidenav" mode="side">
-          <ul><li><button mat-button >Home</button></li> 
-          <button mat-button>Investment</button></ul>
-          <button (click)="showFiller = !showFiller">
-          </button>
+          <ul>
+            <li><button mat-button >Home</button></li> 
+            <li><button mat-button>Investment</button></li>
+          </ul>
         </mat-drawer>
         <div class="example-sidenav-content">
           <button type="button" mat-button (click)="drawer.toggle()">
