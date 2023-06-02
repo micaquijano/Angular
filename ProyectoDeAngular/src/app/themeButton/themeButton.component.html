@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<!-- OPCION A
+<mat-icon *ngIf="theme == true" [matTooltip]="'modo oscuro'" (click)="changeTheme()">dark_mode</mat-icon>
+<mat-icon *ngIf="theme == false" [matTooltip]="'modo claro'" (click)="changeTheme()">sunny</mat-icon>
+ -->
+
+<!-- OPCION B
+<mat-icon [matTooltip]="tooltipName()" (click)="changeTheme()">{{theme ? 'dark_mode' : 'sunny'}}</mat-icon>
+ -->
+
+OPCION C
+<mat-icon [matTooltip]="themeObj.tooltip" (click)="changeThemeRefactor()">{{themeObj.icon}}</mat-icon>
