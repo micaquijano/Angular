@@ -26,7 +26,7 @@ export class ThemeButtonComponent {
 
   changeThemeRefactor() {
     /*this.themeObj = this.themeObj.icon !=  darkTheme.icon  ? darkTheme : lightTheme;*/
-    this.themeObj = this.themeObj.icon != darkTheme.icon ? darkTheme : lightTheme  
+    this.themeObj = this.themeObj.icon != darkTheme.icon ? darkTheme : lightTheme   
   }
 
 
