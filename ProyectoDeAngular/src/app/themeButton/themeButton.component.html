@@ -7,5 +7,14 @@
 <mat-icon [matTooltip]="tooltipName()" (click)="changeTheme()">{{theme ? 'dark_mode' : 'sunny'}}</mat-icon>
  -->
 
-OPCION C
-<mat-icon [matTooltip]="themeObj.tooltip" (click)="changeThemeRefactor()">{{themeObj.icon}}</mat-icon>
+<mat-icon color="primary"
+(ngModelChange)="onchance($event)"
+[(ngModel)]="isDarkThemeActive" 
+[matTooltip]="themeObj.tooltip" (click)="changeThemeRefactor()">{{themeObj.icon}}
+</mat-icon>
+
+<mat-slide-toggle
+        color="primary"
+        (ngModelChange)="onchance($event)"
+        [(ngModel)]="isDarkThemeActive" 
+        >Dark mode</mat-slide-toggle>

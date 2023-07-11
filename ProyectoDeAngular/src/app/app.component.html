@@ -38,15 +38,10 @@
       >
         <mat-icon color="primary">share</mat-icon>
       </button>
-      <mat-slide-toggle
-        color="primary"
-        (ngModelChange)="onchance($event)"
-        [(ngModel)]="isDarkThemeActive"
-        >Dark mode</mat-slide-toggle
-      >
+      
     </mat-toolbar>
 <themeButton-component></themeButton-component>
-  </p>
+  
   
   <section>
     <div class="example-button-row">
@@ -60,7 +55,6 @@
     (onClickEvent)="flagDelHijo = $event"
   ></header-component>
   <h1>{{ flagDelHijo }}</h1>
- 
  
  
   <mat-card>
@@ -86,4 +80,3 @@
   </mat-card>
 
   <footer-component></footer-component>
-</div>
