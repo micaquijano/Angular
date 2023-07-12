@@ -29,15 +29,18 @@ export class ThemeButtonComponent {
     this.themeObj = this.themeObj.icon != darkTheme.icon ? darkTheme : lightTheme   
   }
 
-
-
   
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.document.body.classList.add('theme-dark');
   }
-  onchance(newValue: boolean): void {
+  onchange(newValue: boolean): void {
     //ejecutar cuando una situación ocurre.
     this.isDarkThemeActive = !this.isDarkThemeActive;
+    if(newValue){
+      this.themeObj = darkTheme
+    }else{
+      this.themeObj == lightTheme
+     } 
     if (newValue) {
       this.buttonColor = 'accent';
       this.document.body.classList.add('theme-dark');
