@@ -9,5 +9,6 @@ export class AppComponent {
   title = 'ProyectoDeAngular';
   flagDelHijo: boolean = false;
   buttonColor = 'accent';
+  contador = 0;
 
 }
